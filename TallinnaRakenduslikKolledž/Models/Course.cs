@@ -1,4 +1,6 @@
-﻿namespace TallinnaRakenduslikKolledž.Models
+﻿using System.Globalization;
+
+namespace TallinnaRakenduslikKolledž.Models
 {
     public class Course
     {
