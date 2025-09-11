@@ -13,6 +13,11 @@ namespace TallinnaRakenduslikKolledž.Controllers
         {
             _context = context;
         }
+        /// <summary>
+        /// Return data for student
+        /// </summary>
+        /// <param name="id"> id of student</param>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             return View(await _context.Students.ToListAsync());
@@ -22,6 +27,11 @@ namespace TallinnaRakenduslikKolledž.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// Create student
+        /// </summary>
+        /// <param name="student"> student data</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,LastName,FirstName,EnrollmentDate,Course")] Student student)
@@ -36,6 +46,11 @@ namespace TallinnaRakenduslikKolledž.Controllers
             return View(student);
 
         }
+        /// <summary>
+        /// Get delete view for student
+        /// </summary>
+        /// <param name="id"> id of student</param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -50,6 +65,11 @@ namespace TallinnaRakenduslikKolledž.Controllers
             }
             return View(student);
         }
+        /// <summary>
+        /// Confirms student deletion
+        /// </summary>
+        /// <param name="id"> id of student</param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -59,5 +79,12 @@ namespace TallinnaRakenduslikKolledž.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            var student = await _context.Students.FindAsync(id);
+            return View(student);
+        }
     }
 }
+
