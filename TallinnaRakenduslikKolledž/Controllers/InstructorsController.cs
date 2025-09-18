@@ -35,7 +35,7 @@ namespace TallinnaRakenduslikKolledž.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Instructor instructor, string selectedCourses)
         {
-            if (selectedCourses == null)
+            if (selectedCourses != null)
             {
                 instructor.CourseAssignments = new List<CourseAssignment>();
                 foreach (var course in selectedCourses)
@@ -49,6 +49,7 @@ namespace TallinnaRakenduslikKolledž.Controllers
                 }
 
             }
+            ModelState.Remove("selectedCourses");
             if (ModelState.IsValid)
             {
                 _context.Add(instructor);
@@ -61,6 +62,7 @@ namespace TallinnaRakenduslikKolledž.Controllers
         private void PopulateAssignedCourseData(Instructor instructor)
         {
             var allCourses = _context.Courses;
+
             var instructorCourses = new HashSet<int>(instructor.CourseAssignments.Select(c => c.CourseID));
             //valime kursused kus courseid on õpetajal olemas
             var vm = new List<AssignedCourseData>();
