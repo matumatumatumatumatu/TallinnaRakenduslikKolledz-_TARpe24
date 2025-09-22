@@ -1,0 +1,28 @@
+﻿@model TallinnaRakenduslikKolledž.Models.Instructor
+@{
+	ViewData["Title"] = "Vaata õpetaja";
+}
+<h1>Vaade õpetajale</h1>
+<div>
+	<h4>Õpetaja @Html.DisplayFor(model => model.FullName)</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.LastName)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.LastName)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.FirstName)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.FirstName)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.CourseAssignments)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.CourseAssignments)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.OfficeAssignment)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.OfficeAssignment)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.HireDate)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.HireDate)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Salary)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Salary)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Age)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Age)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Department)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Department)</dt>
+	</dl>
+
+</div>
