@@ -1,0 +1,59 @@
+﻿@model TallinnaRakenduslikKolledž.Models.Department
+
+{
+ViewData["Title"] = "Kustuta osakond";
+}
+
+@* <h2>@Html.DisplayFor(modelItem => Model.Name)</h2> *@
+@if (ViewBag.Värv == "punane")
+{
+	<p>
+		<h3>Kustuta osakond</h3>
+	</p>
+}
+else if (ViewBag.Värv == "sinine")
+{
+	<p>
+		<h3>Vaade osakonnale</h3>
+	</p>
+}
+
+<div>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Name)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Name)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.DepartmentID)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.DepartmentID)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.SigmaStatus)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.SigmaStatus)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Budget)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Budget)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.StartDate)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.StartDate)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.EndDate)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.EndDate)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.InstructorIDˇ)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.InstructorIDˇ)</dt>
+	</dl>
+	@if(ViewBag.Värv == "punane")
+	{
+		<form asp-action="Delete">
+			<input type="hidden" asp-for="RowVersion" />
+			<input type="hidden" asp-for="DepartmentID" />
+			<input type="submit" value="Kustuta" class="btn btn-danger" /><a asp-action="Index">Tühista</a>
+		</form>
+	}
+	else if(ViewBag.Värv == "sinine")
+	{
+		<form asp-action="Delete">
+			<input type="hidden" asp-for="RowVersion" />
+			<input type="hidden" asp-for="DepartmentID" />
+			<input type="hidden" value="Kustuta" class="btn btn-danger" /><a asp-action="Index">Tühista</a>
+		</form>
+	}
+
+	</div>
+
+
+

@@ -1,6 +1,7 @@
 
     using TallinnaRakenduslikKolledž.Data;
 using Microsoft.EntityFrameworkCore;
+
 namespace TallinnaRakenduslikKolledž
 {
     public class Program
@@ -15,6 +16,7 @@ namespace TallinnaRakenduslikKolledž
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             var app = builder.Build();
+            CreateDbIfNotExist(app);
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -36,6 +38,24 @@ namespace TallinnaRakenduslikKolledž
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+        }
+
+        private static void CreateDbIfNotExist(IHost app)
+        {
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                try
+                {
+                    var context = services.GetRequiredService<SchoolContext>();
+                    DbInitializer.Initalizer(context);
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "Error occured on creating DB");
+                }
+            }
         }
     }
 }

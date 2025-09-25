@@ -84,7 +84,7 @@ namespace TallinnaRakenduslikKolledž.Migrations
                     b.Property<decimal>("Budget")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("InstructorIDˇ")
@@ -97,7 +97,7 @@ namespace TallinnaRakenduslikKolledž.Migrations
                     b.Property<byte?>("RowVersion")
                         .HasColumnType("tinyint");
 
-                    b.Property<bool?>("SigmaStatus")
+                    b.Property<bool>("SigmaStatus")
                         .HasColumnType("bit");
 
                     b.Property<int?>("SocialCreditScore")

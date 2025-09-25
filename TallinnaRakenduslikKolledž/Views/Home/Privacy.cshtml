@@ -4,3 +4,13 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+
+@if(ViewBag.Värv == "punane")
+{
+    @(Html.Display("Punane"))
+
+}
+else if(ViewBag.Värv == "roheline")
+{
+    @(Html.Display("Roheline"))
+}
