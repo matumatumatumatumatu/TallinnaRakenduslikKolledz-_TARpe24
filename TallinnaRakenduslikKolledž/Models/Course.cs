@@ -1,9 +1,11 @@
-﻿using System.Globalization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace TallinnaRakenduslikKolledž.Models
 {
     public class Course
     {
+        [Key]
         public int CourseID { get; set; }
         public string Title { get; set; }
         public int Credits { get; set; }
