@@ -33,9 +33,9 @@ namespace TallinnaRakenduslikKolledž.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(course);
+                _context.Courses.Add(course);
                 await _context.SaveChangesAsync();
-                PopulateDepartmentsDropDownList(course.DepartmentID);
+                //PopulateDepartmentsDropDownList(course.DepartmentID);
                 
             }
 
@@ -44,6 +44,7 @@ namespace TallinnaRakenduslikKolledž.Controllers
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewData["Värv"] = "punane";
             if (id == null || _context.Courses == null)
             {
                 return NotFound();
@@ -73,6 +74,13 @@ namespace TallinnaRakenduslikKolledž.Controllers
             }
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Details(int? id)
+        {
+            ViewData["Värv"] = "sinine";
+            var course = await _context.Courses.FirstOrDefaultAsync(c => c.CourseID == id);
+            return View("Delete", course);
         }
 
         private void PopulateDepartmentsDropDownList(object selectedDepartment = null)

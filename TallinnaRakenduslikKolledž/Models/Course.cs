@@ -12,7 +12,7 @@ namespace TallinnaRakenduslikKolledž.Models
         public Department? Department { get; set; }
         public int? DepartmentID { get; set; }
 
-        public ICollection<Enrollment> Enrollments { get; set; }
-        public ICollection<CourseAssignment> CourseAssignments { get; set; }
+        public ICollection<Enrollment>? Enrollments { get; set; }
+        public ICollection<CourseAssignment>? CourseAssignments { get; set; }
     }
 }
