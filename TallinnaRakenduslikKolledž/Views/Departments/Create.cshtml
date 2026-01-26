@@ -1,1 +1,74 @@
-﻿
+﻿@model TallinnaRakenduslikKolledž.Models.Department
+@{
+    ViewData["Title"] = "Osakond";
+}
+
+@if (ViewBag.Värv == "punane")
+{
+    <h1>Asuta uus osakond</h1>
+}
+else if (ViewBag.Värv == "sinine")
+{
+    <h1>Muuda osakonda @Html.DisplayFor(modelItem => Model.Name)</h1>
+}
+
+<div class="row">
+    <div class="col-md-4">
+
+        <form asp-action="@(ViewBag.Värv == "sinine" ? "Edit" : "Create")">
+
+            <!-- MUST always be present -->
+            <input type="hidden" asp-for="DepartmentID" />
+            <input type="hidden" asp-for="RowVersion" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="control-label" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="InstructorIDˇ" class="control-label"></label>
+                <select asp-for="InstructorIDˇ" class="control-label" asp-items="ViewBag.InstructorID">
+                    <option value=""> --Palun Vali Õpetaja--</option>
+                </select>
+                <span asp-validation-for="InstructorIDˇ" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Budget" class="control-label"></label>
+                <input asp-for="Budget" class="control-label" />
+                <span asp-validation-for="Budget" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="control-label" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SigmaStatus" class="control-label"></label>
+                <input asp-for="SigmaStatus" class="control-label" />
+                <span asp-validation-for="SigmaStatus" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EndDate" class="control-label"></label>
+                <input asp-for="EndDate" class="control-label" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit"
+                       value="@(ViewBag.Värv == "sinine" ? "Edit" : "Create")"
+                       class="btn btn-green" />
+                |
+                <a asp-action="Index" class="btn btn-primary"></a>
+            </div>
+
+        </form>
+    </div>
+</div>
