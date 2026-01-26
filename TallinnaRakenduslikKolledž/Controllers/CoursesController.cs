@@ -31,6 +31,7 @@ namespace TallinnaRakenduslikKolledž.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Course course)
         {
+            ViewData["Number"] = "uks";
             if (ModelState.IsValid)
             {
                 _context.Courses.Add(course);
@@ -40,6 +41,25 @@ namespace TallinnaRakenduslikKolledž.Controllers
             }
 
             return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            ViewData["Number"] = "kaks";
+            var course = await _context.Courses.FindAsync(id);
+            return View("Create", course);
+        }
+        [HttpPost, ActionName("Edit")]
+        public async Task<IActionResult> Edit(Course course)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Courses.Update(course);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View("Create", course);
+
         }
         [HttpGet]
         public async Task<IActionResult> Delete(int? id)
