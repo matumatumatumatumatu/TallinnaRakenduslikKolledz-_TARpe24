@@ -19,8 +19,11 @@ else if (ViewBag.Number == "kaks")
     <div class="col-md-4">
         <form asp-action="@(ViewBag.Number == "kaks" ? "Edit" : "Create")" method="post">
 
-            @* REQUIRED: keeps ID during Edit *@
-            <input type="hidden" asp-for="CourseID" />
+            
+            @if (ViewBag.Number == "kaks")
+            {
+                <input type="hidden" asp-for="CourseID" />
+            }
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -46,7 +49,7 @@ else if (ViewBag.Number == "kaks")
 
             <div class="form-group mt-3">
                 <input type="submit"
-                       value="@(ViewBag.Number == "kaks" ? "Salvesta" : "Loo")"
+                       value="@(ViewBag.Number == "kaks" ? "Edit" : "Create")"
                        class="btn btn-primary" />
                 |
                 <a asp-action="Index" class="btn btn-outline-primary">Tühista</a>

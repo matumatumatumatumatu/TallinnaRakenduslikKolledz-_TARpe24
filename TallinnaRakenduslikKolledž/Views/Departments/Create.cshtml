@@ -17,7 +17,7 @@ else if (ViewBag.Värv == "sinine")
 
         <form asp-action="@(ViewBag.Värv == "sinine" ? "Edit" : "Create")">
 
-            <!-- MUST always be present -->
+            
             <input type="hidden" asp-for="DepartmentID" />
             <input type="hidden" asp-for="RowVersion" />
 
