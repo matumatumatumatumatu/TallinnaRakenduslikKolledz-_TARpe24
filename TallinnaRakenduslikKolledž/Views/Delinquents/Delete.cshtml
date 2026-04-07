@@ -1,0 +1,26 @@
+﻿@model TallinnaRakenduslikKolledž.Models.Delinquents
+@{
+	ViewData["Title"] = "Kustuta korrarikkuja";
+}
+<h1>Kustuta korrarikkuja</h1>
+<h4> @Model.FirstName @Model.LastName</h4>
+<div>
+	<h4>Korrarikkuja</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.FirstName)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.FirstName)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.LastName)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.LastName)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Violation)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Violation)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Instructor)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Instructor)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Details)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Details)</dt>
+	</dl>
+	<form asp-action="Delete">
+		<input type="hidden" asp-for="DelinquentsID" />
+		<input type="submit" value="Kustuta" class="btn btn-danger" /><a asp-action="Index">Tühista</a>
+	</form>
+</div>
