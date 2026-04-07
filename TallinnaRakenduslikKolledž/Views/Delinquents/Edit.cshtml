@@ -1,0 +1,49 @@
+﻿@model TallinnaRakenduslikKolledž.Models.Delinquents
+@{ViewData["Title"] = "Muuda korrarikkujat";}
+<h1>Muuda korrarikkujat</h1>
+<h4></h4>
+<hr />
+<div class="row">
+	<div class="col-md-8">
+		<form asp-action="Edit">
+			<input type="hidden" asp-for="DelinquentsID" />
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="FirstName"></label>
+				<input asp-for="FirstName" class="text-danger" />
+				<span asp-validation-for="FirstName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="LastName"></label>
+				<input asp-for="LastName" class="text-danger" />
+				<span asp-validation-for="LastName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Violation"></label>
+				<select asp-for="Violation"
+						asp-items="Html.GetEnumSelectList<Delinquents.ViolationType>()"
+						class="form-control">
+				</select>
+				<span asp-validation-for="Violation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Instructor"></label>
+				<input asp-for="Instructor" class="text-danger" />
+				<span asp-validation-for="Instructor" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Details"></label>
+				<input asp-for="Details" class="text-danger" />
+				<span asp-validation-for="Details" class="text-danger"></span>
+			</div>
+
+			<div>
+				<input type="submit" value="Sisesta" class="btn btn-primary" />
+			</div>
+			<div>
+	<a asp-action="Index" class="btn btn-danger">Tühista lisamine</a>
+</div>
+		</form>
+	</div>
+</div>
+}
