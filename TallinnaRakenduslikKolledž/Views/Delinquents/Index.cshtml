@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TallinnaRakenduslikKolledž.Models.Delinquents>
+@{ 
+	ViewData["Title"] = "Korrarikkujad";
+}
+<h2>Korrarikkujad</h2>
+<p>
+	<a asp-action="Create">Lisa Korrarikkuja</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Eesnimi</th>
+			<th>Perekonnanimi</th>
+			<th>Korrarikkumine</th>
+			<th>On õpetaja</th>
+			<th>Detailid</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var delinquent in Model)
+		{
+			string selectedRow = "";
+			if (delinquent.DelinquentsID == (int?)ViewData["DelinquentsID"])
+			{
+				selectedRow = "table-success";
+			}
+			<tr class="@selectedRow">
+				<td>@Html.DisplayFor(modelItem => delinquent.FirstName)</td>
+				<td>@Html.DisplayFor(modelItem => delinquent.LastName)</td>
+				<td>@Html.DisplayFor(modelItem => delinquent.Violation)</td>
+				<td>@Html.DisplayFor(modelItem => delinquent.Instructor)</td>
+				<td>@Html.DisplayFor(modelItem => delinquent.Details)</td>
+
+				<td>
+					<a asp-action="Edit" asp-route-id="@delinquent.DelinquentsID">Muuda</a>
+					<a asp-action="Details" asp-route-id="@delinquent.DelinquentsID">Vaata</a>
+					<a asp-action="Delete" asp-route-id="@delinquent.DelinquentsID">Kustuta</a>
+				</td>
+
+			</tr>
+		}
+	</tbody>
+</table>
