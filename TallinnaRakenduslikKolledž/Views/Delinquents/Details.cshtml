@@ -1,0 +1,22 @@
+﻿@model TallinnaRakenduslikKolledž.Models.Delinquents
+@{
+	ViewData["Title"] = "Vaata Korrarikkujat";
+}
+<h1>Vaade korrarikkujale</h1>
+<div>
+	<h4> @Model.FirstName @Model.LastName</h4>
+	<hr />
+	<dl class="col">
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.FirstName)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.FirstName)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.LastName)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.LastName)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Violation)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Violation)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Instructor)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Instructor)</dt>
+		<dt class="col-sm-2">@Html.DisplayNameFor(model => model.Details)</dt>
+		<dt class="col-sm-2">@Html.DisplayFor(model => model.Details)</dt>
+	</dl>
+
+</div>
